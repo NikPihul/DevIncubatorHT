@@ -9,7 +9,7 @@ void userTurn(char values[]);
 void computerTurn(char values[]);
 bool checkPlace(int choice, char values[]);
 bool checkArea(int choice);
-bool checkResult(char values[], char symbol);
+bool isCheckResult(char values[], char symbol);
 
 int main () {
 	char marks[SQUARES_AMOUNT] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
@@ -25,10 +25,10 @@ int main () {
 			
 		drawBoard(marks);
 		
-		if (checkResult(marks, 'X')) {
+		if (isCheckResult(marks, 'X')) {
 			cout << "Player wins." << endl;
 			break;
-		} else if (checkResult(marks, 'O')) {
+		} else if (isCheckResult(marks, 'O')) {
 			cout << "Computer wins." << endl;
 			break;
 		}
@@ -125,7 +125,7 @@ void computerTurn(char values[])
 	} while (!turnFlag);
 }
 
-bool checkResult(char values[], char symbol)
+bool isCheckResult(char values[], char symbol)
 {
 	if (values[0] == values[4] and values[4] == values[8] and values[8] == symbol)
 		return true;
